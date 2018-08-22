@@ -7,3 +7,4 @@ Procedimento padrão;
 - Roda migrations (ja vai criar o banco sqlite)
 - Manda o runserver
 - Bate na 8000
+- Se quiser ver com DRF bate na 8000/drf
