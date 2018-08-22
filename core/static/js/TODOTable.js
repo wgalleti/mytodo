@@ -4,6 +4,12 @@ Vue.component('todo-table', {
      return {};
    },
   methods: {
+    finalizar: function(tarefa){
+      var self = this
+      API.finalizar_tarefa(tarefa).then(function(response){
+       console.log('Aqui só finaliza, não desfinaliza!!!');
+      })
+    },
     remove: function(tarefa){
       var self = this
       // tarefa.removing = true
@@ -25,7 +31,7 @@ Vue.component('todo-table', {
       </thead>
       <tbody>
         <tr v-for="tarefa in todotarefas">
-          <td><input type="checkbox" v-model="tarefa.feita"></td>
+          <td><input type="checkbox" v-model="tarefa.feita" @change="finalizar(tarefa)"></td>
           <td :class="{risca: tarefa.feita}">{{tarefa.tarefa}}</td>
           <td>
             <button class="button is-warning" :class="{'is-loading': tarefa.removing}" @click="remove(tarefa)">

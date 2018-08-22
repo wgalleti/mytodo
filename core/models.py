@@ -8,6 +8,10 @@ class Tarefa(models.Model):
     feita = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
 
+    def finalizar(self):
+        self.feita = True
+        self.save()
+
     def to_dict_json(self):
         return {
             'id': self.id,
